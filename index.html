@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./style.css">
+    <title>Andre - Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <a class="flex items-center" href="#">
+        <img class="h-24" src="assets/logo.png" alt="logo">
+        <h1 class="text-32 text-gradient">NDRE</h1>
+      </a>
+      <nav>
+        <ul id="menu" class="menu sm:hidden">
+          <li><a class="link" href="#">Home</a></li>
+          <li><a class="link" href="#about">About</a></li>
+          <li><a class="link" href="#services">Services</a></li>
+          <li><a class="link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamMenu" onclick="toggleMenu()">
+        <i data-feather="menu"></i>
+      </button>
+    </header>
+    <main>
+      <section id="home">
+        <div class="home-text">
+          <p class="text-24">Hallo</p>
+          <h1 class="text-64 sm:text-32">I'm Andre</h1>
+          <h2 class="text-32 sm:text-16">I am a Web Developer</h2>
+          <p class="sm:w-360">Not really, I'm just a student still learning at a university from Indonesia.</p>
+        </div>
+        <div class="home-image">
+          <img class="rounded-full blink w-480 h-480 sm:w-360 sm:h-360" src="assets/profile.jpg" alt="profile-picture">
+        </div>
+      </section>
+      <section id="about">
+        <div>
+          <img class="glow w-480 h-480 sm:w-360 sm:h-360" src="assets/profile2.jpg" alt="profile-picture">
+        </div>
+        <div class="sm:flex sm:flex-col sm:justify-center">
+          <h1 class="text-32">About Me</h1>
+          <p class="mt-16 sm:w-360">Hallo. My name is Andre Ananda Putra, a Computer Science student based in Padang, West Sumatera. I am highly passionate about technology and continuously strive to improve my skills. With a strong dedication to learning and hands-on experience in software development, I have built a solid foundation in both front-end and back-end technologies. I am always eager to explore new challenges and enhance my expertise in creating innovative and high-quality software solutions.</p>
+          <div class="flex gap-16 mt-16">
+            <ul>
+              <li>Name:</li>
+              <li class="mt-16">Age:</li>
+              <li class="mt-16">Email:</li>
+              <li class="mt-16">Phone:</li>
+              <li class="mt-16">Address:</li>
+            </ul>
+            <ul>
+              <li>Andre Ananda Putra</li>
+              <li class="mt-16">19</li>
+              <li class="mt-16">andreananda1022@gmail.com</li>
+              <li class="mt-16">081228180764</li>
+              <li class="mt-16">West Sumatera, Indonesia</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="services">
+        <h1 class="text-32">What Can I Do</h1>
+        <p class="sm:w-360">I'm still figuring out what can I do, but I got some of this from online sources.</p>
+        <div class="flex flex-wrap gap-16 mt-64 sm:flex-col sm:flex-nowrap sm:w-360 sm:justfiy-center sm:items-center">
+          <div class="services-card">
+            <h3>HTML</h3>
+            <p>I'm comfortable with html5.</p>
+          </div>
+          <div class="services-card">
+            <h3>PHP</h3>
+            <p>I understand PHP, but I'm not yet at an expert level.</p>
+          </div>
+          <div class="services-card">
+            <h3>CSS</h3>
+            <p>I know CSS well, but I'm not advanced yet.</p>
+          </div>
+          <div class="services-card">
+            <h3>Javascript</h3>
+            <p>I have some project with JS</p>
+          </div>
+          <div class="services-card">
+            <h3>Tailwind</h3>
+            <p>I'am familiar with Tailwind</p>
+          </div>
+          <div class="services-card">
+            <h3>React</h3>
+            <p>I know the basic.</p>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="bg-secondary p-32">
+          <h3 class="text-32">Let's work together</h3>
+          <p>Call me on whatsapp or email</p>
+          <form class="flex flex-col items-center gap-64 mt-32" onsubmit="sendMessage(event)" method="POST">
+            <div class="flex sm:flex-col items-center gap-32">
+              <div>
+                <input class="contact-input" id="firstName" name="firstName" placeholder="First Name">
+                <p id="errorFirstName" style="color: red;"></p>
+              </div>
+              <input class="contact-input" id="lastName" name="lastName" placeholder="Last Name (Optional)">
+            </div>
+            <div class="flex sm:flex-col items-center gap-32">
+              <div>
+                <input class="contact-input" id="phone" name="phone" placeholder="Phone">
+                <p id="errorPhone" style="color: red;"></p>
+              </div>
+              <div>
+                <input class="contact-input" type="email" id="email" name="email" placeholder="Email">
+                <p id="errorEmail" style="color: red;"></p>
+              </div>
+            </div>
+            <textarea class="contact-textarea" id="message" name="message" placeholder="Write Message..."></textarea>
+            <p id="errorMessage" style="color: red;"></p>
+            <button class="button" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div>
+          <div class="flex items-center gap-16">
+            <i data-feather="phone"></i>
+            <div>
+              <h5>Phone</h5>
+              <p>081228180763</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-16 mt-16">
+            <i data-feather="mail"></i>
+            <div>
+              <h5>Email</h5>
+              <p>andreananda1022@gmail.com</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-16 mt-16">
+            <i data-feather="map"></i>
+            <div>
+              <h5>Address</h5>
+              <p>Padang, West Sumatera, Indonesia</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <p>&copy; 2025 Andre Ananda Putra. All rights reserved.</p>
+    </footer>
+    <script src="./script.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>feather.replace();</script>
+  </body>
+</html>
