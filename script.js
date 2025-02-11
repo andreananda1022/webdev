@@ -1,4 +1,4 @@
-const PHONE_NUMBER = "081228180764";
+const PHONE_NUMBER = "+6281228180764";
 
 function sendMessage(event) {
   event.preventDefault();
