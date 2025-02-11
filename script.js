@@ -34,7 +34,7 @@ function sendMessage(event) {
     return;
   }
 
-  const text = `Hallo, I am ${fields.firstName}. %0A${fields.message}`;
+  const text = `Hallo, I am ${fields.firstName}. ${fields.message}`;
   const encodedText = encodeURIComponent(text);
   const url = `https://wa.me/${PHONE_NUMBER}?text=${encodedText}`;
 
