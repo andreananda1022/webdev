@@ -1,0 +1,39 @@
+import { serve } from "bun";
+import { readFile } from "fs/promises";
+import { existsSync } from "fs";
+
+const serveStatic = async (path: string) => {
+  if (!existsSync(path)) return null;
+  const ext = path.split(".").pop();
+  const contentType = {
+    js: "application/javascript",
+    html: "text/html",
+    css: "text/css",
+    png: "image/png",
+    jpg: "image/jpeg",
+    svg: "image/svg+xml",
+    ico: "image/x-icon",
+  }[ext || ""] || "application/octet-stream";
+
+  try {
+    const isBinary = ["png", "ico", "jpg", "svg"].includes(ext || "");
+    const file = await readFile(path, isBinary ? null : "utf-8");
+    return new Response(file, { headers: { "Content-Type": contentType } });
+  } catch (error) {
+      console.error(`Error read file: ${path}`, error);
+      return new Response("Internal Server Error", { status: 500 });
+  }
+};
+
+const server = serve({
+  port: 3000,
+  async fetch(req) {
+    const url = new URL(req.url);
+    const filePath = `public${url.pathname === "/" ? "/index.html" : url.pathname}`;
+    const response = await serveStatic(filePath);
+    if (response) return response;
+    return await serveStatic("public/404.html") || new Response("404 Not Found", { status: 404 });
+  },
+});
+
+console.log(`Listening on localhost:${server.port}`);
